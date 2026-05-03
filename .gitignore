@@ -1,1 +1,44 @@
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iml
+*.ipr
+*.iws
+.settings/
+.classpath
+.project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+dist/
+out-tsc/
+bazel-out/
+.angular/cache/
+coverage/
+
+# Java / Gradle
+.gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Vercel
 .vercel
