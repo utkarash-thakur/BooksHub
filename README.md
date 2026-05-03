@@ -69,7 +69,7 @@ Happy reading and writing!
 **Additional Information:**
 
 - The Angular app runs on port `localhost:4200`, and the backend on port `localhost:8080`.
-- To learn more about the backend, visit [BooksBackend repository](https://github.com/Utkarash33/BooksBackend).
-- If you encounter any issues or have difficulty installing or using BookHubX, feel free to reach out on [LinkedIn](https://www.linkedin.com/in/utkarash-thakur-70439a262/).
+- To learn more about the backend, visit [BooksBackend repository](https://github.com/utkarash-thakur/BooksBackend).
+- If you encounter any issues or have difficulty installing or using BookHubX, feel free to reach out on [LinkedIn](https://www.linkedin.com/in/utkarash-thakur).
 
 
