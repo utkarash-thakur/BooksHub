@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router'; 
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -37,7 +38,7 @@ export class LoginComponent {
                           'Authorization': 'Basic ' + btoa(requestBody.email + ":" + requestBody.password),
                         })
 
-    this.http.get('http://localhost:8080/auth/login', { headers,responseType:'text' as 'json',observe:'response'}).subscribe(
+    this.http.get(`${environment.apiUrl}/auth/login`, { headers,responseType:'text' as 'json',observe:'response'}).subscribe(
       (response:any) => {
         
         localStorage.setItem('token',response.headers.get('Authorization'))

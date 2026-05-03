@@ -3,6 +3,7 @@ import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-discussions',
   templateUrl: './discussions.component.html',
@@ -27,7 +28,7 @@ export class DiscussionsComponent implements OnInit {
   }
 
   fetchDiscussions() {
-    const apiUrl = "http://localhost:8080/discussion/getall";
+    const apiUrl = `${environment.apiUrl}/discussion/getall`;
  
     const token = localStorage.getItem('token');
     this.http.get<any[]>(apiUrl).subscribe(
@@ -50,7 +51,7 @@ export class DiscussionsComponent implements OnInit {
 
    selectDiscussionById(id:number)
    {
-    const apiUrl = `http://localhost:8080/discussion/${id}`;
+    const apiUrl = `${environment.apiUrl}/discussion/${id}`;
     const token = localStorage.getItem('token');
     
     const headers= new HttpHeaders({
@@ -91,7 +92,7 @@ export class DiscussionsComponent implements OnInit {
     const userObject = JSON.parse(userString);
     const userId = userObject.id;
     
-    const apiUrl = `http://localhost:8080/discussion/addMessage/${this.discussionId}?content=${this.newComment}&UserId=${userId}`;
+    const apiUrl = `${environment.apiUrl}/discussion/addMessage/${this.discussionId}?content=${this.newComment}&UserId=${userId}`;
     const token = localStorage.getItem('token');
   
     if (!token) {
@@ -138,7 +139,7 @@ export class DiscussionsComponent implements OnInit {
 
     createNewDiscussion(title:string)
     {
-    const apiUrl = `http://localhost:8080/discussion/create?title=${title}`;
+    const apiUrl = `${environment.apiUrl}/discussion/create?title=${title}`;
     const token = localStorage.getItem('token');
     
     const headers= new HttpHeaders({

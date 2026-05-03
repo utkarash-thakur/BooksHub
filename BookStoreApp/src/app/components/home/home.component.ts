@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import  Swal  from "sweetalert2";
 import { ReadingListService } from 'src/app/services/reading-list.service';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
  }
 
  fetchBooks() {
-  const apiUrl = `http://localhost:8080/books?page=${this.currentPage}`;
+  const apiUrl = `${environment.apiUrl}/books?page=${this.currentPage}`;
 
   this.http.get<any>(apiUrl).subscribe
   (

@@ -3,6 +3,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
 import { ReadingListService } from 'src/app/services/reading-list.service';
 @Component({
   selector: 'app-details',
@@ -33,7 +34,7 @@ export class DetailsComponent implements OnInit {
 
 fetchBookDetails(bookId: string): void {
   
-  const apiUrl = `http://localhost:8080/books/${bookId}`;
+  const apiUrl = `${environment.apiUrl}/books/${bookId}`;
 
   this.http.get<any>(apiUrl).subscribe(
     (response) => {
@@ -60,7 +61,7 @@ setNewRating(rating: number): void {
 }
 
 addReview(): void {
-  const apiUrl = `http://localhost:8080/review/${this.book.id}`;
+  const apiUrl = `${environment.apiUrl}/review/${this.book.id}`;
 
   const token = localStorage.getItem('token');
   const userString = localStorage.getItem("user");

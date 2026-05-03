@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormBuilder,FormGroup,Validators,AbstractControl } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-add-book-form',
   templateUrl: './add-book-form.component.html',
@@ -39,35 +40,34 @@ export class AddBookFormComponent implements OnInit{
  }
 
 
- onSubmit()
- {
+ onSubmit() {
   const userString = localStorage.getItem("user");
-const parsedUser = userString ? JSON.parse(userString) : null;
-const authorsList: string[] = parsedUser && parsedUser.name ? [parsedUser.name] : [];
+  const parsedUser = userString ? JSON.parse(userString) : null;
+  const authorsList: string[] = parsedUser && parsedUser.name ? [parsedUser.name] : [];
 
   const book = {
+    title: this.bookForm.value.title,
+    description: this.bookForm.value.description,
+    pageCount: this.bookForm.value.pageCount,
+    publishedDate: new Date().toISOString(),
+    authors: authorsList,
+    imageUrl: this.bookForm.value.imageUrl
+  };
 
-     title:this.bookForm.value.title,
-     description:this.bookForm.value.description,
-     pageCount:this.bookForm.value.pageCount,
-     publishedDate:new Date().toISOString(),
-     authors:authorsList,
-     imageUrl:this.bookForm.value.imageUrl
-  }
-  const apiUrl = "http://localhost:8080/books/create";
-  const token = localStorage.getItem('token');
-  
-  const headers= new HttpHeaders({
+  const apiUrl = `${environment.apiUrl}/books/create`;
+  const headers = new HttpHeaders({
     'Authorization': `Bearer ${this.getToken()}`
-  })    
-  this.http.post(apiUrl,book, {headers,responseType:"json"}).subscribe(
+  });
+
+  this.http.post(apiUrl, book, { headers, responseType: "json" }).subscribe(
     (response) => {
       Swal.fire({
         title: 'Success',
         text: "Book has been added successfully",
         icon: 'success',
         timer: 1500
-      })
+      });
+      this.bookForm.reset();
     },
     (error) => {
       Swal.fire({
@@ -75,15 +75,12 @@ const authorsList: string[] = parsedUser && parsedUser.name ? [parsedUser.name] 
         text: "Something went wrong try again later",
         icon: 'error',
         timer: 1500
-      })
+      });
     }
-    
   );
-  this.bookForm.reset();
-  }
+ }
 
-
- private getToken(){
+ private getToken() {
   
   return localStorage.getItem('token')
 

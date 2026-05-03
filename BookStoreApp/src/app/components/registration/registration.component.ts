@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from
 import { Router } from '@angular/router';
 import { HttpClient  } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -102,7 +103,7 @@ onSubmit() {
 
 
     // Send registration request to the backend
-    this.http.post('http://localhost:8080/auth/register', formData).subscribe(
+    this.http.post(`${environment.apiUrl}/auth/register`, formData).subscribe(
       (response) => {
         Swal.fire({
           title: 'Success',

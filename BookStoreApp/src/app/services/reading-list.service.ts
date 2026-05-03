@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../components/navbar/navbar.component';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class ReadingListService {
   getReadingList()
   {
     const id = this.user?.id;
-    const apiUrl = `http://localhost:8080/reading-lists/${id}`;
+    const apiUrl = `${environment.apiUrl}/reading-lists/${id}`;
     const token = localStorage.getItem('token');
     
     const headers= new HttpHeaders({
@@ -36,7 +37,7 @@ export class ReadingListService {
   addBookToReadingList(bookId:string)
   {
     const id = this.user.id;
-  const apiUrl = `http://localhost:8080/reading-lists/${id}/${bookId}`;
+  const apiUrl = `${environment.apiUrl}/reading-lists/${id}/${bookId}`;
   const token = localStorage.getItem('token');
   
   const headers= new HttpHeaders({
@@ -67,7 +68,7 @@ export class ReadingListService {
   removeFromReadingList(bookId:number)
   {
     console.log(bookId)
-  const apiUrl = `http://localhost:8080/reading-lists/${bookId}`;
+  const apiUrl = `${environment.apiUrl}/reading-lists/${bookId}`;
   const token = localStorage.getItem('token');
   console.log(token)
   const headers= new HttpHeaders({
