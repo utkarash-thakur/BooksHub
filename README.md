@@ -25,13 +25,12 @@ BookHubX is more than just an online bookstore. It's a vibrant community where r
 ## Get Started:
 
 1. **Clone the repository:**
-
    
-#### Repository Link
+ ### 🔗 Related Repositories
 
-```http
-https://github.com/Utkarash33/BooksHub.git
-```
+ - Backend (Java): [https://github.com/utkarash-thakur/BooksBackend](https://github.com/utkarash-thakur/BooksBackend)
+
+ - To run the full application, you need to start both frontend and backend.
 
 2. **Backend:**
 - Start your favorite IDE.
