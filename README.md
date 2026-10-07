@@ -1,74 +1,65 @@
-# BookHubX: Your Personalized Bookstore App
+# BookHubX · Frontend
 
-**Welcome to BookHubX, your one-stop shop for book lovers and authors!**
+<img src="BookStoreApp/src/assets/logo.png" alt="BookHubX logo" width="120" />
 
-BookHubX is more than just an online bookstore. It's a vibrant community where readers can discover new reads, discuss their favorites, and connect with fellow bibliophiles. Authors can also publish their works and share them with the world.
+Angular app for **BookHubX**, a bookstore and reader community: readers discover, rate and discuss books and build reading lists; authors publish and manage their own titles.
 
-## Key Features:
+**Backend (Spring Boot):** [utkarash-thakur/BooksBackend](https://github.com/utkarash-thakur/BooksBackend) · **Portfolio:** [utkarash-thakur.vercel.app](https://utkarash-thakur.vercel.app)
 
-### For Readers:
+## Features
 
-- Explore a vast collection of books across genres.
-- view into detailed descriptions and reviews.
-- Rate and review books to share your opinion.
-- Build your personalized reading list to track your progress.
-- Start and participate in discussions about your favorite books.
-- Connect with other readers and share your love of literature.
+**Readers**
+- Browse books and open a details page for each title.
+- Rate and review books.
+- Keep a personal reading list.
+- Start and join community discussions.
 
-### For Authors:
+**Authors**
+- Register as an author and publish books through the add-book form.
+- Update or remove their own titles.
 
-- Publish your book directly to the platform.
-- Manage your book details and updates.
-- Engage with readers through reviews and discussions.
-- Build your author profile and connect with fans.
+**Admins**
+- Remove discussions, users or authors.
 
-## Get Started:
+## Tech stack
 
-1. **Clone the repository:**
-   
- ### 🔗 Related Repositories
+| Area | Tools |
+| --- | --- |
+| Framework | Angular 16, TypeScript |
+| Styling | Tailwind CSS |
+| API | REST calls to the [Spring Boot backend](https://github.com/utkarash-thakur/BooksBackend), authenticated with JWT |
 
- - Backend (Java): [https://github.com/utkarash-thakur/BooksBackend](https://github.com/utkarash-thakur/BooksBackend)
+## Pages
 
- - To run the full application, you need to start both frontend and backend.
+| Route | Page |
+| --- | --- |
+| `/` | Home: all books |
+| `/book-details/:id` | Book details and reviews |
+| `/readinglist` | My reading list |
+| `/discussions` | Community discussions |
+| `/addbook` | Add a book (authors) |
+| `/login`, `/registration` | Sign in and sign up |
 
-2. **Backend:**
-- Start your favorite IDE.
-- Create a database named `bookshub` in MySQL.
-- Run the backend application.
+## Project structure
 
-3. **Frontend:**
-- Open the frontend project in your IDE.
-- Run `npm install` to install dependencies.
-- Start the application with `ng serve`.
+```
+BookStoreApp/src/app
+├── components/   home, details, readinglist, discussions, add-book-form, login, registration, navbar
+├── services/     reading-list service (API calls)
+└── app-routing.module.ts
+```
 
-## Technologies:
+## Run it locally
 
-- **Frontend:** Angular, Tailwind CSS
-- **Backend:** Java, Spring Boot, Spring Security JWT
+1. Start the [backend](https://github.com/utkarash-thakur/BooksBackend) first. It runs on `http://localhost:8080`.
+2. Then start the frontend:
+   ```bash
+   cd BookStoreApp
+   npm install
+   npx ng serve
+   ```
+3. Open `http://localhost:4200`.
 
-## Solo Project:
+## Author
 
-This project is currently a solo endeavor, but feel free to contribute or reach out for collaboration!
-
-## Known Issues and Limitations:
-
-- The application is still under development, so there might be some minor bugs or features not yet implemented.
-- Currently, only MySQL is supported as the database backend.
-
-## Join the BookHubX Community!
-
-We're excited to have you join the BookHubX community!
-
-Feel free to explore, read, discuss, and create. Your feedback and contributions are valuable to us. Let's build a haven for passionate bookworms together!
-
-Happy reading and writing!
-
-
-**Additional Information:**
-
-- The Angular app runs on port `localhost:4200`, and the backend on port `localhost:8080`.
-- To learn more about the backend, visit [BooksBackend repository](https://github.com/utkarash-thakur/BooksBackend).
-- If you encounter any issues or have difficulty installing or using BookHubX, feel free to reach out on [LinkedIn](https://www.linkedin.com/in/utkarash-thakur).
-
-
+**Utkarash Thakur**, Backend Engineer · [Portfolio](https://utkarash-thakur.vercel.app) · [LinkedIn](https://www.linkedin.com/in/utkarash-thakur/)
